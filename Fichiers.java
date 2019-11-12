@@ -17,10 +17,12 @@ import java.util.ArrayList;
  *
  * @author licence
  */
-abstract class Fichiers {
+abstract class Fichiers implements Interface {
     protected ArrayList<String> text;
     File file;
     private String name;
+    private String contenu;
+    private String path;
     
     public Fichiers(){
         this.text = new ArrayList<>();
@@ -37,19 +39,18 @@ abstract class Fichiers {
         return false;
     }
     
-    public void LectureFile(){
+    public String ContenuFile(){
+        String contenu ="";
         try {
-            InputStream ips = new FileInputStream(file);
+            InputStream ips = new FileInputStream(this.path);
             InputStreamReader ipsr = new InputStreamReader(ips);
             BufferedReader br = new BufferedReader(ipsr);
-            String line;
-            while ((line = br.readLine())!= null){
-                text.add(line);
+            while((line=br.readLine())!=null){
+                this.contenu += line + " ";
             }
+            br.close();
         }
-        catch (IOException e) {
-        }
+        catch (Exception e)
+            return contenu;
     }
-    
-    public abstract void afficher();
 }

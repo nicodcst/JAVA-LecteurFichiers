@@ -37,5 +37,4 @@ public class LecteurFichiers {
     }
     
     FichiersTXT lecture1 = new FichiersTXT("E:\\Users\\Nicolas\\Documents\\Licence Pro\\JAVA\\NetBeansProjects\\LecteurFichiers\\src\\lecteurfichiers\\test.txt") {};
-    lecture1.afficher();
 }
